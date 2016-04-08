@@ -1,0 +1,48 @@
+body            { font-family: Verdana, serif;
+                  background: #eee; }
+a, h1, h2       { color: #377BA8; }
+h1, h2          { font-family: Verdana, serif;
+                  margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+
+.page           { margin: 2em auto;
+                  min-width: 24em;
+                  padding: 0.8em;
+                  border: 5px solid #ccc;
+                  background: white; }
+
+.flash          { background: #CEE5F5;
+                  padding: 0.5em;
+                  border: 1px solid #AACBE2; }
+.error          { background: #F0D6D6;
+                  padding: 0.5em; }
+
+
+.field-validation-error {
+   border: 2px solid #ff0000;
+   background-color: #ffeeee;
+}
+
+.msg-highlight {
+   color: #C00000;
+}
+
+.field_label { display: inline-block;
+               text-align: right; }
+.login_label { width: 6em; }
+.user_dlg_label { width: 8.5em; }
+.calorie_fld_label { width: 7em; }
+
+button#expand_button {
+   color: steelblue;
+   font-size: 2em;
+   font-weight: bold;
+}
+
+button#shorten_button {
+   color: steelblue;
+   font-size: 2em;
+   font-weight: bold;
+}
+

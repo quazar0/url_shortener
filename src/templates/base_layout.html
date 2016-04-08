@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSN URL Shortener</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='jquery-ui-1.11.4.min.css' ) }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='style.css' ) }}">
+<!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script  -->
+<!-- script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script  -->
+<script src="{{ url_for( 'static', filename='jquery-1.11.3.min.js'     ) }}"></script>
+<script src="{{ url_for( 'static', filename='jquery-ui-1.11.4.min.js'  ) }}"></script>
+<script src="{{ url_for( 'static', filename='url_shortener_app.js' ) }}"></script>
+<script>
+var SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+$( function() {
+      $errormsg = $( "span.error" );
+      //initUserDialog();
+   }
+);
+
+{% block script %}{% endblock %}
+</script>
+</head>
+
+<body>
+<div class="page">
+   <h1>JSN URL Shortener</h1>
+   <div class="mini_nav">
+   </div>
+{% for message in get_flashed_messages() %}
+   <div class="flash">{{ message }}</div>
+{% endfor %}
+   <span class="error">{% if error %}<strong>Error:</strong> {{ error }}{% endif %}</span>
+
+{% block body %}{% endblock %}
+
+</div>
+{% block footer %}{% endblock %}
+</body>
+</html>
