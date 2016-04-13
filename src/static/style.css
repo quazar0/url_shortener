@@ -1,48 +1,44 @@
-body            { font-family: Verdana, serif;
-                  background: #eee; }
-a, h1, h2       { color: #377BA8; }
-h1, h2          { font-family: Verdana, serif;
-                  margin: 0; }
-h1              { border-bottom: 2px solid #eee; }
-h2              { font-size: 1.2em; }
+body      { font-family: Verdana, serif;
+            background: #eee; }
+a, h1, h2 { color: #377BA8; }
+h1, h2    { font-family: Verdana, serif;
+            margin: 0; }
+h1        { border-bottom: 2px solid #eee; }
+h2        { font-size: 1.2em; }
+h3        { margin: 2em 1ex 0; }
 
-.page           { margin: 2em auto;
-                  min-width: 24em;
-                  padding: 0.8em;
-                  border: 5px solid #ccc;
-                  background: white; }
+.page     { margin: 2em auto;
+            min-width: 24em;
+            padding: 0.8em;
+            border: 5px solid #ccc;
+            background: white; }
 
-.flash          { background: #CEE5F5;
-                  padding: 0.5em;
-                  border: 1px solid #AACBE2; }
-.error          { background: #F0D6D6;
-                  padding: 0.5em; }
+.flash    { background: #CEE5F5;
+            padding: 0.5em;
+            border: 1px solid #AACBE2; }
+.error    { background: #F0D6D6;
+            padding: 0.5em; }
 
+.msg-highlight { color: #C00000; }
 
-.field-validation-error {
-   border: 2px solid #ff0000;
-   background-color: #ffeeee;
+fieldset { max-width: 60em; }
+
+input.text {
+   box-sizing: border-box;
+   width: 99%;
+   margin-top: 4px;
 }
 
-.msg-highlight {
-   color: #C00000;
-}
+button#expand_button  { color: steelblue; font-weight: bold; }
+button#shorten_button { color: steelblue; font-weight: bold; }
 
-.field_label { display: inline-block;
-               text-align: right; }
-.login_label { width: 6em; }
-.user_dlg_label { width: 8.5em; }
-.calorie_fld_label { width: 7em; }
+#shorten_result { padding-left: 4px; }
+#expand_result  { padding-left: 4px; }
+#shorten_result_section { padding-top: 4px; }
+#expand_result_section  { padding-top: 4px; }
 
-button#expand_button {
-   color: steelblue;
-   font-size: 2em;
-   font-weight: bold;
-}
-
-button#shorten_button {
-   color: steelblue;
-   font-size: 2em;
-   font-weight: bold;
-}
+#test_redirect_section {
+   border: 1px solid black;
+   width: 60em;
+ }
 

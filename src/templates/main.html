@@ -11,15 +11,15 @@ $( initMainPage );
       <form>
          <fieldset>
             <label for="long_url">URL to shorten:</label>
-            <input type="text" id="long_url" class="text ui-widget-content ui-corner-all">
-            Result: <div id="shorten_result"></div>
+            <input type="text" id="long_url" class="text ui-widget-content ui-corner-all"><br>
+            <div id="shorten_result_section">Result:
+               <span id="shorten_result"></span>
+            </div>
          </fieldset>
       </form>
       </div>
+      <button type="button" id="shorten_button">Shorten</button><br>
    </div>
-   <button type="button" id="shorten_button">Shorten</button><br>
-
-   {# comment ... #}
 
    <h3>Expand a short URL</h3>
    <div id="expand_section">
@@ -27,11 +27,41 @@ $( initMainPage );
          <form>
             <fieldset>
                <label for="short_url">URL to expand:</label>
-               <input type="text" id="short_url" class="text ui-widget-content ui-corner-all">
-               Result: <div id="expand_result"></div>
+               <input type="text" id="short_url" class="text ui-widget-content ui-corner-all"><br>
+               <div id="expand_result_section">Result:
+                  <span id="expand_result"></span>
+               </div>
             </fieldset>
          </form>
       </div>
+      <button type="button" id="expand_button" >Expand</button><br>
    </div>
-   <button type="button" id="expand_button" >Expand</button><br>
+
+{# Elements for Testing #}
+
+<div id="test_cmd_div">
+   <h3>Test Invalid Cmd</h3>
+   <div id="test_cmd_section">
+      <div id="test_cmd_form">
+         <form>
+            <fieldset>
+               <label for="invalid_cmd">API command to run:</label>
+               <input type="text" id="invalid_cmd" class="text ui-widget-content ui-corner-all"><br>
+               <div id="test_cmd_result_section">Result:
+                  <span id="test_cmd_result"></span>
+               </div>
+            </fieldset>
+         </form>
+      </div>
+      <button type="button" id="test_cmd_button" >Run Test</button><br>
+   </div>
+</div>
+
+<div id="test_redirect_div">
+   <h3>URL Redirect Tests</h3>
+   <div id="test_redirect_section">
+      <button type="button" id="test_redirect_button" >Run Redirect Tests</button><br>
+      <div id="test_redirect_result_section"></div>
+   </div>
+</div>
 {% endblock %}

@@ -1,14 +1,19 @@
-__author__ = 'jnelson <jsn0.list@gmail.com>'
 
 from flask import Flask
 from flask_restful  import Api
 
-APP = Flask( "url_shortener_app", static_url_path='' )
+__author__ = 'jnelson <jsn0.list@gmail.com>'
+
+APP = Flask( "url_shortener_app" )   # , static_url_path='' )
 API = Api( APP )
 
 APP.secret_key = 'x=[loVY>ZW1hcOdAqkC;}!nyfwY7jW'
 #APP.config[ 'DEBUG' ] = True
 ##APP.debug = True
+
+#g_sUrlHost = "localhost:5000"
+g_sUrlHost = "jsn9.sytes.net"
+g_sUrlPrefix = "http://" + g_sUrlHost + '/'
 
 
 def init_db_path( path=None ):

@@ -15,7 +15,6 @@ var SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 
 $( function() {
       $errormsg = $( "span.error" );
-      //initUserDialog();
    }
 );
 
@@ -25,9 +24,7 @@ $( function() {
 
 <body>
 <div class="page">
-   <h1>JSN URL Shortener</h1>
-   <div class="mini_nav">
-   </div>
+   <h1>JNelson URL Shortener</h1>
 {% for message in get_flashed_messages() %}
    <div class="flash">{{ message }}</div>
 {% endfor %}
