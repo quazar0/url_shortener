@@ -1,15 +1,13 @@
 #!/usr/bin/python3
 
+import logging
 from time import sleep
 from time import time
 
 import psycopg2
 import antipool
-#from . import antipool
 
-from sys_globals  import APP
-
-log = APP.logger
+log = logging.getLogger( "url_shortener_app" )
 
 g_iMAXCONNECTIONS_DEFAULT = 10
 g_conn_pool = None

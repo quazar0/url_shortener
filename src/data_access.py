@@ -1,15 +1,16 @@
 
+import logging
 from urllib.parse  import urlsplit
 
 from sql  import SQL
-from sys_globals  import APP, g_sUrlHost   # , g_sUrlPrefix
 from str_util  import int2str, str2int
-#import traceback
+from sys_globals  import g_sUrlHost
 
 __author__ = 'jnelson <jsn0.list@gmail.com>'
 
-log = APP.logger
+__all__ = [ 'get_db_entry', 'add_db_entry', 'update_db_entry', 'generate_short_url_path', 'get_url_path' ]
 
+log = logging.getLogger( "url_shortener_app" )
 
 
 def get_db_entry( sShortPath, sLongURL=None ):
@@ -29,9 +30,7 @@ def get_db_entry( sShortPath, sLongURL=None ):
    sSQL = sSelect + ' FROM url_list ' + sWhereClause + ';'
    db = SQL( bReadOnly=True )
    tupRow = db.Get( sSQL, tupArg )
-   #print( "get_db_entry(): tupRow =", str(tupRow) )
-   log.debug( "get_db_entry(): tupRow=%s", str(tupRow) )
-   #row = query_db( sSQL, (sArg,), True )
+   log.debug( "tupRow=%s", str(tupRow) )
    if not tupRow:
       return None
    sResult = tupRow[ 0 ]   # = rows[0][0]
@@ -62,11 +61,6 @@ def generate_short_url_path( iSeq ):
    return sShort
 
 
-def init_database( sLogin=None ):
-   from db_util  import connect_database
-   connect_database( sLogin )
-
-
 def get_url_path( sURL ):
    tupSplitURL = urlsplit( sURL )
    #print( str(datetime.now()), "expandUrl(): url split; split-url=" + str(tupSplitURL) )
@@ -85,4 +79,9 @@ def get_url_path( sURL ):
    if sShortPath[0] == '/':
       sShortPath = sShortPath[ 1: ]
    return sShortPath
+
+
+#def init_database( sLogin=None ):
+#   from db_util  import connect_database
+#   connect_database( sLogin )
 

@@ -1,4 +1,4 @@
-var $notify;   // = $( ".notify" );
+// var $notify;   // = $( ".notify" );
 var $errormsg;
 
 var $long_url;
@@ -23,16 +23,12 @@ function updateErrorMsg( msg ) {
    setTimeout( function() { $errormsg.removeClass( "msg-highlight" ); }, 1500 );
 }
 
-function updateNotifyMsg( msg ) {
-   $notify.text( msg ).addClass( "msg-highlight" );
-   setTimeout( function() { $notify.removeClass( "msg-highlight" ); }, 1500 );
-}
-
 
 function shortenUrl( event ) {
    console.debug( "shortenUrl(): called" );
    // console.log( "shortenUrl(): called; data=" + event.data );
    updateErrorMsg( '' );
+   $expand_result_section.hide();
    $shorten_result_section.hide();
    $shorten_result.html( "" );
    var api_url = SCRIPT_ROOT + '/api/shorten';     // setup data for restful api call
@@ -44,8 +40,6 @@ function shortenUrl( event ) {
    $.getJSON( api_url, api_args )
       .done(   function( data, status, xhr ) {    // successful
                   console.debug( "shortenUrl() done; status=" + status );
-                  //console.log( "shorten() done; data=" + data.toString() );
-                  //dlen = data.length;
                   var html_val = '<a id="short_a" href="' + data.url + '">' + data.url + '</a>';
                   $shorten_result.html( html_val );
                   $shorten_result_section.show();
@@ -54,12 +48,10 @@ function shortenUrl( event ) {
       .fail(   function( xhr, status, error ) {
                   console.error( "shortenUrl() fail; status=" + status + ", err=" + error );
                   console.error( "shortenUrl() fail; resp='" + xhr.responseText + "'" );
-                  //var key1 = Object.keys( xhr.responseJSON.message )[ 0 ];
-                  //var msg = xhr.responseJSON.message[ key1 ];
-                  //var msg = xhr.responseJSON.message;
-                  //if ( key1 !== "msg" )
-                  //   msg = "Invalid " + key1 + "; " + msg;
-                  updateErrorMsg( error );
+                  var msg = error;
+                  if ( xhr.responseText )
+                     msg = "ERROR: " + xhr.responseText
+                  updateErrorMsg( msg );
                }
       );
 }
@@ -68,6 +60,7 @@ function shortenUrl( event ) {
 function expandUrl( event ) {
    console.log( "expandUrl(): called" );
    updateErrorMsg( '' );
+   $shorten_result_section.hide();
    $expand_result_section.hide();
    $expand_result.html( "" );
    var api_url = SCRIPT_ROOT + '/api/expand';     // setup data for restful api call
@@ -95,6 +88,10 @@ function expandUrl( event ) {
       );
 }
 
+
+// *********************************************************
+// Testing code
+// *********************************************************
 
 function runInvalidCmd() {
    console.log( "runInvalidCmd(): called" );
@@ -215,6 +212,10 @@ function startRedirectTest( event ) {
    return;
 }
 
+
+// *********************************************************
+// end of testing code
+// *********************************************************
 
 function initMainPage() {
    updateErrorMsg( '' );

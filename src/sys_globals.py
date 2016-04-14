@@ -1,27 +1,24 @@
 
-from flask import Flask
-from flask_restful  import Api
+#from flask import Flask
+#import logging
 
 __author__ = 'jnelson <jsn0.list@gmail.com>'
 
-APP = Flask( "url_shortener_app" )   # , static_url_path='' )
-API = Api( APP )
+#APP = None
+#APP = Flask( "url_shortener_app" )   # , static_url_path='' )
+#APP.secret_key = 'x=[loVY>ZW1hcOdAqkC;}!nyfwY7jW'
 
-APP.secret_key = 'x=[loVY>ZW1hcOdAqkC;}!nyfwY7jW'
-#APP.config[ 'DEBUG' ] = True
-##APP.debug = True
+##'%(levelname)s in %(module)s [%(pathname)s:%(lineno)d]:\n%(message)s'
+#APP.debug_log_format = '%(levelname)-5s <%(process)5d:%(thread)12x> [%(name)s] %(funcName)s: %(message)s'
 
-#g_sUrlHost = "localhost:5000"
 g_sUrlHost = "jsn9.sytes.net"
 g_sUrlPrefix = "http://" + g_sUrlHost + '/'
 
-
-def init_db_path( path=None ):
-   global APP
-   if "DB_PATH" not in APP.config:
-      if not path:
-         import os.path
-         path = os.path.join( APP.root_path, 'data', 'url.db' )
-      APP.config[ 'DB_PATH' ] = path
-   return APP.config[ 'DB_PATH' ]
+#if not APP.debug:
+#from logging.handlers import SysLogHandler
+#syslog_handler = SysLogHandler()
+#syslog_handler.setLevel( logging.DEBUG )
+#syslog_handler.setFormatter( logging.Formatter(
+#   '%(levelname)-5s <%(process)5d:%(thread)12x> [%(name)s] %(funcName)s: %(message)s' ) )
+#APP.logger.addHandler( syslog_handler )
 

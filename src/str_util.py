@@ -1,10 +1,11 @@
 __author__ = 'jnelson <jsn0.list@gmail.com>'
 
+import logging
 import string
-from sys_globals  import APP
+#from sys_globals  import APP
 #import traceback
 
-log = APP.logger
+log = logging.getLogger( "url_shortener_app" )
 
 # //////////////////////////////////////
 # RFC 1738 includes this list of characters for a URL:
